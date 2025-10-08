@@ -1,37 +1,88 @@
 // Typing Effect
-        const typingText = ["Front-end Developer ", "Web Developer ", ""];
-        let i = 0;
-        let j = 0;
-        let currentText = "";
-        let isDeleting = false;
-        const typingElement = document.querySelector(".typing");
+const textArray = ["Full-Stack Developer", "UX Designer", "Creative Problem Solver"];
+let index = 0, charIndex = 0;
+const typingEl = document.querySelector(".typing");
 
-        function type() {
-            if (i >= typingText.length) i = 0;
-            const fullText = typingText[i];
+function type() {
+    if (charIndex < textArray[index].length) {
+        typingEl.textContent += textArray[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+    } else {
+        setTimeout(erase, 1500);
+    }
+}
 
-            if (!isDeleting) {
-                currentText = fullText.substring(0, j + 1);
-                j++;
-                if (j === fullText.length) {
-                    isDeleting = true;
-                    setTimeout(type, 1000);
-                    return;
-                }
-            } else {
-                currentText = fullText.substring(0, j - 1);
-                j--;
-                if (j === 0) {
-                    isDeleting = false;
-                    i++;
-                }
-            }
+function erase() {
+    if (charIndex > 0) {
+        typingEl.textContent = textArray[index].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 60);
+    } else {
+        index = (index + 1) % textArray.length;
+        setTimeout(type, 200);
+    }
+}
 
-            typingElement.textContent = currentText;
-            setTimeout(type, isDeleting ? 50 : 150);
-        }
+// Particle Background
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particles = [];
 
-        type();
+function setCanvasSize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2;
+        this.speedX = Math.random() * 0.5 - 0.25;
+        this.speedY = Math.random() * 0.5 - 0.25;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+    }
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = '#00ffea';
+        ctx.fill();
+    }
+}
+
+function initParticles() {
+    particles = [];
+    for (let i = 0; i < 80; i++) {
+        particles.push(new Particle());
+    }
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animateParticles);
+}
+
+// Initialize everything
+window.addEventListener('DOMContentLoaded', () => {
+    type();
+    setCanvasSize();
+    initParticles();
+    animateParticles();
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    setCanvasSize();
+    initParticles(); // Re-initialize particles on resize
+});
+
 
         // Dynamic Project Cards
         const projects = [
