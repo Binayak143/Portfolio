@@ -1,5 +1,5 @@
 // Typing Effect
-const textArray = ["Full-Stack Developer", "UX Designer", "Creative Problem Solver"];
+const textArray = ["Front-end Developer ", "Creative Problem Solver"];
 let index = 0, charIndex = 0;
 const typingEl = document.querySelector(".typing");
 
