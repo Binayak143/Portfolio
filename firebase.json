@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "portfolio-binayak",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
