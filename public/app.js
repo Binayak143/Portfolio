@@ -88,18 +88,24 @@ window.addEventListener('resize', () => {
         const projects = [
             {
                 title: "Electric Bill Generator",
-                description: "Responsive web app to calculate and generate electric bills with modern UI and neon theme.",
-                link: "#"
+                description: "Responsive web app to calculate and generate electric bills.",
+                link: "https://electricity-bill.web.app/"
             },
             {
                 title: "Hotel Bill Generator",
                 description: "Interactive hotel billing system to generate invoices with real-time calculations.",
-                link: "#"
+                link: "https://hotel-b6aa7.web.app/"
             },
             {
                 title: "Result Publisher Software",
-                description: "Web application to publish student exam results dynamically with a neon-themed dashboard.",
-                link: "#"
+                description: "Web application to publish student exam results dynamically dashboard.",
+                link: "https://result-publish-software-65e35.web.app/"
+            },
+            {
+                
+                title: "Smart Tip Calculator",
+                description: "Quickly calculate the perfect tip for your hotel stay.",
+                link: "https://hotal-tip-calculator.web.app/"
             }
         ];
 
