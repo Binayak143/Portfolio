@@ -84,38 +84,46 @@ window.addEventListener('resize', () => {
 });
 
 
-        // Dynamic Project Cards
-        const projects = [
-            {
-                title: "Electric Bill Generator",
-                description: "Responsive web app to calculate and generate electric bills.",
-                link: "https://electricity-bill.web.app/"
-            },
-            {
-                title: "Hotel Bill Generator",
-                description: "Interactive hotel billing system to generate invoices with real-time calculations.",
-                link: "https://hotel-b6aa7.web.app/"
-            },
-            {
-                title: "Result Publisher Software",
-                description: "Web application to publish student exam results dynamically dashboard.",
-                link: "https://result-publish-software-65e35.web.app/"
-            },
-            {
-                
-                title: "Smart Tip Calculator",
-                description: "Quickly calculate the perfect tip for your hotel stay.",
-                link: "https://hotal-tip-calculator.web.app/"
-            }
-        ];
+// Dynamic Project Cards
+const projects = [
+    {
+        title: "Electric Bill Generator",
+        description: "Responsive web app to calculate and generate electric bills.",
+        link: "https://electricity-bill.web.app/"
+    },
+    {
+        title: "Hotel Bill Generator",
+        description: "Interactive hotel billing system to generate invoices with real-time calculations.",
+        link: "https://hotel-b6aa7.web.app/"
+    },
+    {
+        title: "Result Publisher Software",
+        description: "Web application to publish student exam results dynamically dashboard.",
+        link: "https://result-publish-software-65e35.web.app/"
+    },
+    {
 
-        const container = document.getElementById("projects-container");
+        title: "Smart Tip Calculator",
+        description: "Quickly calculate the perfect tip for your hotel stay.",
+        link: "https://hotal-tip-calculator.web.app/"
+    },
+    {
 
-        projects.forEach(project => {
-            const col = document.createElement("div");
-            col.className = "col-md-5 col-lg-4";
+        title: "TODO LIST",
+        description: "Add, edit, and track tasks easily with a responsive To-Do List app built using HTML, CSS, and JavaScript.",
+        link: "https://todo-bb3ff.firebaseapp.com/"
 
-            col.innerHTML = `
+    },
+
+];
+
+const container = document.getElementById("projects-container");
+
+projects.forEach(project => {
+    const col = document.createElement("div");
+    col.className = "col-md-5 col-lg-4";
+
+    col.innerHTML = `
             <div class="project-card">
                 <h4>${project.title}</h4>
                 <p>${project.description}</p>
@@ -123,5 +131,5 @@ window.addEventListener('resize', () => {
             </div>
         `;
 
-            container.appendChild(col);
-        });
+    container.appendChild(col);
+});
